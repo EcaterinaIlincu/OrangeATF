@@ -1,19 +1,28 @@
 package orange;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import orange.exceptions.NoDuplicatesException;
+import orange.tasks.FindDuplicatedWords;
+
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        String inputText = "Lorem ipsum dolor sit amet. Rem impedit nihil quo labore perspiciatis sed " +
+                "ducimus error et nihil iste aut dolores aliquid non fuga perspiciatis. Et consequatur quia" +
+                " quo voluptatem quia cum facilis voluptatem quo autem dolores ut quis deserunt ea laudantium" +
+                " temporibus ut sit eius. Sed distinctio accusamus eum autem beatae nam illum neque aut " +
+                "tempore voluptates sed iure dolores eos deleniti galisum non expedita amet.";
 
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
+        FindDuplicatedWords findDuplicatedWords = new FindDuplicatedWords();
+
+        try {
+            findDuplicatedWords.getAllDuplicates(inputText);
+        } catch (NoDuplicatesException e) {
+            System.out.println(e.getMessage());
+
         }
+
+
     }
 }
