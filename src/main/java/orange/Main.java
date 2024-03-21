@@ -3,8 +3,6 @@ package orange;
 import orange.exceptions.NoDuplicatesException;
 import orange.tasks.FindDuplicatedWords;
 
-import java.util.*;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -20,9 +18,6 @@ public class Main {
             findDuplicatedWords.getAllDuplicates(inputText);
         } catch (NoDuplicatesException e) {
             System.out.println(e.getMessage());
-
         }
-
-
     }
 }

@@ -13,19 +13,18 @@ public class FindDuplicatedWords {
         Map<String, Integer> wordMap = new HashMap<>();
         Map<String, Integer> wordMapUnique = new HashMap<>();
 
-        int firstDot = inputText.indexOf('.'); // find first occurrence of dot
+        int firstDot = inputText.indexOf('.');
 
         if (firstDot != -1) {
             remainingText = inputText.substring(firstDot + 1).trim().replaceAll("[,.]", "").toLowerCase();  // extract the substring after first dot
         }
 
-        String[] words = remainingText.split(" ");    // create an array of strings separated by space
+        String[] words = remainingText.split(" ");
 
         for (String word : words) {
             if (wordMap.containsKey(word)) {
                 int count = wordMap.get(word);
                 wordMap.put(word, count + 1);
-                // ["Lorem": 1 ]
             } else {
                 wordMap.put(word, 1);
             }
@@ -36,11 +35,11 @@ public class FindDuplicatedWords {
                 wordMapUnique.put(word, wordMap.get(word));
             }
         }
-        for (String word: wordMapUnique.keySet()) {
+        for (String word : wordMapUnique.keySet()) {
             System.out.println("Word:" + "'" + word + "'" + " is found: " + wordMapUnique.get(word) + " times");
         }
 
-        if (wordMapUnique.isEmpty()){
+        if (wordMapUnique.isEmpty()) {
             throw new NoDuplicatesException("No Duplicates Found");
         }
     }
